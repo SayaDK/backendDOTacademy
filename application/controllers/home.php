@@ -12,6 +12,7 @@ class home extends CI_Controller {
 
     public function index()
     {
+        if($this->session->userdata('login') != NULL){
         $data['konten']="v_dashboard";
         $data['title']="Dashboard";
         $data['count']=$this->m_player->player_count();
@@ -20,6 +21,10 @@ class home extends CI_Controller {
         $data['rpg']=$this->m_player->get_rpg();
         $data['aktif']=["active","","",""];
         $this->load->view('index', $data);
+        }
+        else{
+            redirect('user','refresh');
+        }
         
     }
 

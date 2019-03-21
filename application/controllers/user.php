@@ -13,9 +13,13 @@ class User extends CI_Controller {
     
     public function index()
     {
+        if($this->session->userdata('login') == NULL){
         $data['title']="Login | PPOB";
         $this->load->view('v_login', $data);
-        
+        }
+        else{
+            redirect('home','refresh');
+        }
     }
 
     public function reg()
