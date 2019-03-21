@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title><?=$title?></title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -18,8 +18,8 @@
 	<!-- GOOGLE FONTS -->
 	<link href="<?= base_url()?>https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" href="<?= base_url()?>assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="<?= base_url()?>assets/img/favicon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?= base_url()?>assets/img/dribble.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="<?= base_url()?>assets/img/dribble.png">
 </head>
 
 <body>
@@ -32,12 +32,12 @@
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn navbar-btn-right">
-					<a class="btn btn-success update-pro" href="<?= base_url()?>https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
+					<a class="btn btn-danger update-pro" href="<?= base_url()?>index.php/user/logout"><i class="glyphicon glyphicon-log-out"></i> <span>Logout</span></a>
 				</div>
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-                            <h4 class="update-pro" style="padding: 20px 7px 0 0;">Welcome</h4>
+                            <h4 class="update-pro" style="padding: 20px 7px 0 0;">Welcome, <?=$this->session->userdata('nama');?></h4>
 						</li>
 					</ul>
 				</div>
@@ -49,10 +49,15 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
+						<?php if($this->session->userdata('login') == "admin") {?>
 						<li><a href="<?= base_url()?>index.php/home" class=<?=$aktif[0]?>><i><img src="<?=base_url()?>assets/img/dribble.png"></i>Home</a></li>
 						<li><a href="<?= base_url()?>index.php/teams" class="<?=$aktif[1]?>"><i><img src="<?=base_url()?>assets/img/badge.png"></i>Teams</a></li>
 						<li><a href="<?= base_url()?>index.php/Player" class="<?=$aktif[2]?>"><i><img src="<?=base_url()?>assets/img/player.png"></i>Players</a></li>
 						<li><a href="<?= base_url()?>index.php/national" class="<?=$aktif[3]?>"><i><img src="<?=base_url()?>assets/img/nat.png"></i>Nationality</a></li>
+						<?php } else if($this->session->userdata('login') == "user"){?>
+							<li><a href="<?= base_url()?>index.php/home" class=<?=$aktif[0]?>><i><img src="<?=base_url()?>assets/img/dribble.png"></i>Home</a></li>
+							<li><a href="<?= base_url()?>index.php/Player" class="<?=$aktif[2]?>"><i><img src="<?=base_url()?>assets/img/player.png"></i>Players</a></li>
+						<?php } ?>
 					</ul>
 				</nav>
 			</div>

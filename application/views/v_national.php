@@ -27,7 +27,6 @@
         <h3 class="panel-title">Team Data
     </div>
     <div class="panel-body">
-    <a class="btn btn-info btn-square-sm" data-toggle="modal" href='#tambah' style='margin-bottom:30px'>Add Team</a>  
 		<table class="table table-striped datatabel">
 			<thead>
     			<tr>
@@ -40,7 +39,7 @@
                 foreach($national as $n):?>
                     <tr>
                         <td><?=$n->nationality?></td>
-                        <td><?=$n->abbr?></td>
+                        <td><?=$n->abbr_nat?></td>
                         <td>
                     <a class="btn btn-info btn-square-sm" data-toggle="modal" href='#edit<?=$n->id_nat;?>'><span class="glyphicon glyphicon-edit"></span></a>
                     <a class="btn btn-danger btn-square-sm" data-toggle="modal" href='#hapus<?=$n->id_nat;?>'><span class="glyphicon glyphicon-trash"></span></a>
@@ -61,7 +60,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Abbreviation</label>
-                                                <input type="text" class="form-control" id="abbr" name="abbr" value="<?=$n->abbr?>">
+                                                <input type="text" class="form-control" id="abbr" name="abbr" value="<?=$n->abbr_nat?>">
                                     </div>                                  
                                 </div>
                                 <div class="modal-footer">

@@ -24,7 +24,7 @@ class m_teams extends CI_Model {
   {
       $object= array(
           "nama_team" => $this->input->post('team_name'),
-          "abbr" => $this->input->post('abbr'),
+          "abbr_team" => $this->input->post('abbr'),
           "id_conf" => $this->input->post('conf')
       );
       
@@ -35,7 +35,7 @@ class m_teams extends CI_Model {
   {
     $object= array(
         "nama_team" => $this->input->post('team_name'),
-        "abbr" => $this->input->post('abbr'),
+        "abbr_team" => $this->input->post('abbr'),
         "id_conf" => $this->input->post('conf')
     );
     

@@ -18,7 +18,7 @@ class m_national extends CI_Model {
     {
         $object= array(
             "nationality" => $this->input->post('national'),
-            "abbr" => $this->input->post('abbr')
+            "abbr_nat" => $this->input->post('abbr')
         );
         
         return $this->db->insert('nationality', $object);
@@ -28,7 +28,7 @@ class m_national extends CI_Model {
     {
       $object= array(
           "nationality" => $this->input->post('national'),
-          "abbr" => $this->input->post('abbr'),
+          "abbr_nat" => $this->input->post('abbr'),
       );
       
       return $this->db->where('id_nat',$id)->update('nationality', $object);
